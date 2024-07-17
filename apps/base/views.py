@@ -62,7 +62,7 @@ def dish_detail(request, id):
     menu = Menu.objects.get(id=id)
     dess = Dessert.objects.latest('id')
     sea_food = Sea_Food.objects.latest('id')
-    beve = BEVERAGE.objects.latest()
+    beve = BEVERAGE.objects.latest('id')
     return render(request, 'base/food-menu-2-dark.html', locals())
 
 
