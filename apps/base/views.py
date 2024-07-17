@@ -67,3 +67,5 @@ def dish_detail(request, id):
 
 
 
+def errors(request, exeption):
+    return render(request, '404/404.html, status=404')
