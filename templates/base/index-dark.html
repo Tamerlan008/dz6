@@ -258,23 +258,21 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
                                         <div class="food-menu-style-three">
                                             <div class="thumb">
-                                                <img src="{{ dess.image.url }}" alt="Image Not Found">
+                                                <img src="{{ dees.image.url }}" alt="Image Not Found">
                                                 <div class="d-flex">
                                                     <div class="food-review">
                                                         <i class="fas fa-star"></i>
-                                                        <span>4.9(5.7K)</span>
+                                                        <span>{{ dees.category }}</span>
                                                     </div>
                                                     <div class="price">
-                                                        <span><del>$35.00</del> $34.00</span>
+                                                        <span>{{ dees.price }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="info">
-                                                <h4><a href="#">Vanilla Cupcakes</a></h4>
+                                                <h4><a href="{% url 'dish_detail' dees.id %}">{{ dees.name }}</a></h4>
                                                 <ul>
-                                                    <li>4 chicken legs</li>
-                                                    <li>Chili sauce</li>
-                                                    <li>Soft Drinks</li>
+                                                    <li>{{ dees.description }}</li>
                                                 </ul>
                                                 <a href="#" class="cart-btn-border"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                                             </div>
@@ -292,31 +290,31 @@
                             <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="nav-id-3">
                                 <div class="row">
                                     <!-- Single Item -->
-                                    <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
+                                     {% for sea in sea_food %}
+                                     <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
                                         <div class="food-menu-style-three">
                                             <div class="thumb">
-                                                <img src="" alt="Image Not Found">
+                                                <img src="{{ sea.image.url }}" alt="Image Not Found">
                                                 <div class="d-flex">
                                                     <div class="food-review">
                                                         <i class="fas fa-star"></i>
-                                                        <span>4.9(5.7K)</span>
+                                                        <span>{{ sea.category }}</span>
                                                     </div>
                                                     <div class="price">
-                                                        <span><del>$35.00</del> $34.00</span>
+                                                        <span>{{ sea.price }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="info">
-                                                <h4><a href="#">Salmon Fry</a></h4>
+                                                <h4><a href="{% url 'dish_detail' sea.id %}">{{ sea.name }}</a></h4>
                                                 <ul>
-                                                    <li>4 chicken legs</li>
-                                                    <li>Chili sauce</li>
-                                                    <li>Soft Drinks</li>
+                                                    <li>{{ sea.description }}</li>
                                                 </ul>
                                                 <a href="#" class="cart-btn-border"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                     <!-- End Single Item -->
                                     <!-- Single Item -->
                                     <!-- End Single Item -->
@@ -328,31 +326,31 @@
                             <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="nav-id-4">
                                 <div class="row">
                                     <!-- Single Item -->
-                                    <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
+                                    {% for bev in beve %}
+                                     <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
                                         <div class="food-menu-style-three">
                                             <div class="thumb">
-                                                <img src="{% static 'assets/img/menu/19.jpg' %}" alt="Image Not Found">
+                                                <img src="{{ bev.image.url }}" alt="Image Not Found">
                                                 <div class="d-flex">
                                                     <div class="food-review">
                                                         <i class="fas fa-star"></i>
-                                                        <span>4.9(5.7K)</span>
+                                                        <span>{{ bev.category }}</span>
                                                     </div>
                                                     <div class="price">
-                                                        <span><del>$35.00</del> $34.00</span>
+                                                        <span>{{ bev.price }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="info">
-                                                <h4><a href="#">Cabernet Sauvignon</a></h4>
+                                                <h4><a href="{% url 'dish_detail' bev.id %}">{{ bev.name }}</a></h4>
                                                 <ul>
-                                                    <li>4 chicken legs</li>
-                                                    <li>Chili sauce</li>
-                                                    <li>Soft Drinks</li>
+                                                    <li>{{ bev.description }}</li>
                                                 </ul>
                                                 <a href="#" class="cart-btn-border"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                     <!-- End Single Item -->
                                     <!-- Single Item -->
                                     <!-- End Single Item -->

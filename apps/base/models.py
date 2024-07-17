@@ -1,5 +1,5 @@
 from django.db import models
-from apps.base.type import FOOD_TYPE
+
 
 # Create your models here.
 class Base(models.Model):
@@ -198,3 +198,59 @@ class Dessert(models.Model):
 
     class Meta:
         verbose_name_plural = "Десерт"
+
+class Sea_Food(models.Model):
+    name = models.CharField(
+        max_length=100,
+        verbose_name="Название блюда"
+    )
+    description = models.TextField(
+        verbose_name="Описание блюда"
+    )
+    price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        verbose_name="Цена блюда"
+    )
+    image = models.ImageField(
+        upload_to='menu_images/',
+        verbose_name="Фото блюда"
+    )
+    category = models.CharField(
+        max_length=50,
+        verbose_name="Категория блюда"
+    )
+
+    def str(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Морепродукты"
+        
+class BEVERAGE(models.Model):
+    name = models.CharField(
+        max_length=100,
+        verbose_name="Название блюда"
+    )
+    description = models.TextField(
+        verbose_name="Описание блюда"
+    )
+    price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        verbose_name="Цена блюда"
+    )
+    image = models.ImageField(
+        upload_to='menu_images/',   
+        verbose_name="Фото блюда"
+    )
+    category = models.CharField(
+        max_length=50,
+        verbose_name="Категория блюда"
+    )
+
+    def str(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "НАПИТОК"    

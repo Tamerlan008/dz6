@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from apps.base.models import Base, Popular_category,Our_chef,News, Our_advantages, Menu, Dessert
+from apps.base.models import Base, Popular_category,Our_chef,News, Our_advantages, Menu, Dessert, Sea_Food, BEVERAGE
 from apps.telegram.models import Telegram
 from apps.telegram.views import get_text
 from apps.telegram.forms import PERSONE_CHOISE, TIME_CHOISE
@@ -15,6 +15,8 @@ def index(request):
     news = News.objects.all().order_by('?')[:2]
     menu = Menu.objects.all().order_by('?')[:6]
     dessert = Dessert.objects.all()
+    sea_food = Sea_Food.objects.all()
+    beve = BEVERAGE.objects.all()
 
     if request.method == "POST":
         phone = request.POST.get('phone')
@@ -44,7 +46,9 @@ def index(request):
         'PERSONE_CHOISE': PERSONE_CHOISE,
         'TIME_CHOISE': TIME_CHOISE,
         'menu': menu,
-        'dessert':dessert
+        'dessert':dessert,
+        'sea_food':sea_food,
+        'beve':beve,
     })
     
 def chef_detail(request, id):
@@ -56,6 +60,9 @@ def chef_detail(request, id):
 def dish_detail(request, id):
     base = Base.objects.latest('id')
     menu = Menu.objects.get(id=id)
+    dess = Dessert.objects.latest('id')
+    sea_food = Sea_Food.objects.latest('id')
+    beve = BEVERAGE.objects.latest()
     return render(request, 'base/food-menu-2-dark.html', locals())
 
 
